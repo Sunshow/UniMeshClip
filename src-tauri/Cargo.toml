@@ -25,3 +25,5 @@ tauri = { version = "2.2.4", features = ["tray-icon", "image-ico", "image-png"] 
 tauri-plugin-log = "2.0.0-rc"
 copypasta = "0.10.1"
 mdns-sd = "0.13.2"
+websocket = "0.27.1"
+tokio = "1.43.0"
