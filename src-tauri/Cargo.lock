@@ -4508,6 +4508,7 @@ dependencies = [
  "copypasta",
  "log",
  "mdns-sd",
+ "rand 0.9.0",
  "serde",
  "serde_json",
  "tauri",

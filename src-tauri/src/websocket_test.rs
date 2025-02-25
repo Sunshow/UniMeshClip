@@ -1,5 +1,6 @@
 #[cfg(test)]
 mod tests {
+    use rand::Rng;
     use std::io::Write;
     use std::net::TcpListener;
     use std::thread::{sleep, spawn};
@@ -77,5 +78,18 @@ mod tests {
 
         // 等待线程执行
         handler.join().unwrap();
+    }
+
+    #[test]
+    fn test_random_port() {
+        use rand::Rng;
+        // 选择 49152-65535 范围内的端口号（IANA 建议的动态/私有端口范围）
+        let port = rand::rng().random_range(49152..65535);
+        println!("随机端口号: {}", port);
+
+        match TcpListener::bind(format!("127.0.0.1:{}", port)) {
+            Ok(_) => println!("端口绑定成功"),
+            Err(_) => println!("端口绑定失败"),
+        }
     }
 }
